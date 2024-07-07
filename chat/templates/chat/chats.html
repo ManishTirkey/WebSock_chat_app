@@ -3,9 +3,8 @@
 
 {% block  content %}
 
-        <div style="margin-top: 12px">
-            <h3>{{friend.name}}</h3>
-        </div>
+        <h3 class="friend-name-top">{{friend.name}}</h3>
+
         <div class="messages" id="board">
             {% block message %}
             {% endblock %}

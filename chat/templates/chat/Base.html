@@ -11,37 +11,42 @@
 <!--    <script type="text/javascript" src="{% static 'js/chat.js' %}"></script>-->
     <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
     {% block head %}{% endblock %}
 
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
     <div class="sidenav">
-        <div class="row">
-            <a href="/"><div class="col"><h2 style="padding-left: 16px; display: block-content;">PyChat</h2></div></a>
-        <div class="col"><div class="dropdown">
-            <button onclick="myFunction()" class="btn btn-success">Menu</button>
-            <div id="myDropdown" class="dropdown-content">
-                <a href="/search">Search</a>
-                <a href="/logout">Logout</a>
-              </div>
-        </div>
-        </div>
+        <div class="sidenav-topbar">
+            <a href="/"><h2>PyChat</h2></a>
+            <div class="dropdown-wrapper">
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="btn btn-success">Menu</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="/search">Search</a>
+                        <a href="/logout">Logout</a>
+                      </div>
+                </div>
+            </div>
         </div>
         <hr class="mt-0 mb-4">
         <div class="friends" style="y-overflow: auto">
             <ul class="list-group">
                 {% for friend in friends %}
                     <a href="/chat/{{friend.username}}">
-                        <li class="list-group-item list-group-item-action">
-                            <div class="row">
-                                <div class="col">
+                        <li class="friend-info">
+
+                                <div class="friend-img">
                                     <img src="{% static 'images/user_image.jpg' %}" style="width: 50px; height: 50px;">
                                 </div>
-                                <div class="col">
-                                    <div class="row" style="font-color: #000"><p>{{friend.name}}</p></div>
-                                </div>
-                            </div>
+
+                                    <div class="friend-name"><p>{{friend.name}}</p></div>
+
+
                         </li>
                     </a>
                 {% endfor %}

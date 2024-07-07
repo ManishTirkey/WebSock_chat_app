@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("chat.urls")),
     path('signup/', rv.SignUp, name="register"),
+    path('logout/', rv.Logout, name="logout"),
     path("", include("django.contrib.auth.urls")),
 ]
 
