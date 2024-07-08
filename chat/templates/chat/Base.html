@@ -12,6 +12,8 @@
     <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/chat.css' %}">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
@@ -22,7 +24,7 @@
 <body>
     <div class="sidenav">
         <div class="sidenav-topbar">
-            <a href="/"><h2>PyChat</h2></a>
+            <a href="/"><h2>Chats</h2></a>
             <div class="dropdown-wrapper">
                 <div class="dropdown">
                     <button onclick="myFunction()" class="btn btn-success">Menu</button>
@@ -33,8 +35,7 @@
                 </div>
             </div>
         </div>
-        <hr class="mt-0 mb-4">
-        <div class="friends" style="y-overflow: auto">
+        <div class="friends">
             <ul class="list-group">
                 {% for friend in friends %}
                     <a href="/chat/{{friend.username}}">
@@ -52,7 +53,10 @@
                 {% endfor %}
             </ul>
         </div>
-
+        <a href="/logout" class="sidebar-bottom">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
     </div>
 
     <div class="main">

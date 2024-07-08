@@ -3,18 +3,22 @@
 
 {% block  content %}
 
-        <h3 class="friend-name-top">{{friend.name}}</h3>
+<div class="friend-name-top">
+    <h3>{{friend.name}}</h3>
+</div>
 
         <div class="messages" id="board">
             {% block message %}
             {% endblock %}
         </div>
         <div class="send-msg">
-            <form method="post" class="form-group" id="chat-box">
+            <form method="post" id="chat-box">
                 {% csrf_token %}
 
                         <input type="text" placeholder="Send a message..." name="message" id="msg_field">
-                        <button type="submit" name="send" class="btn btn-success" id="send_btn">Send</button>
+                        <button type="submit" name="send" id="send_btn">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
 
             </form>
         </div>
@@ -32,10 +36,9 @@
             }, 800);
          }
 
-        const text_box = '<div class="container darker">' +
-            '<img src="{% static 'images/user_image.jpg' %}" alt="Avatar" class="right" style="width:100%;">' +
-            '<p>{description}</p>' +
-            '<span class="time-right">{time}</span>' +
+        const text_box = '<div class="container sent-msg">' +
+            '<span msg="msg">{description}</span>' +
+            '<span class="time">{time}</span>' +
             '</div>'
 
         //For sending

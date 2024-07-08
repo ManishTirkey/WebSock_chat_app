@@ -4,16 +4,14 @@
 {% block message %}
 {% for message in messages %}
     {% if curr_user == message.sender_name %}
-        <div class="container darker">
-            <img src="{% static 'images/user_image.jpg' %}" alt="Avatar" class="right" style="width:100%;">
-            <p>{{message.description}}</p>
-            <span class="time-right">{{message.time}}</span>
+        <div class="container sent-msg">
+            <span class="msg">{{message.description}}</span>
+            <span class="time">{{message.time}}</span>
         </div>
     {% else %}
-        <div class="container">
-            <img src="{% static 'images/user_image.jpg' %}" alt="Avatar" style="width:100%;">
-            <p>{{message.description}}</p>
-            <span class="time-left">{{message.time}}</span>
+        <div class="container received-msg">
+            <span class="msg">{{message.description}}</span>
+            <span class="time">{{message.time}}</span>
         </div>
     {% endif %}
 {% endfor %}
@@ -28,10 +26,9 @@ $(function () {
     setInterval(receive, 1000)
 })
 
-const text = '<div class="container">'
-            + '<img src="{% static 'images/user_image.jpg' %}" alt="Avatar" style="width:100%;">' +
-            '<p>{description}</p>' +
-            '<span class="time-left">{time}</span>' +
+const text = '<div class="container">'+
+            '<span class="msg">{description}</span>' +
+            '<span class="time">{time}</span>' +
             '</div>'
 
 function receive(){
