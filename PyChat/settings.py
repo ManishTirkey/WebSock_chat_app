@@ -11,41 +11,24 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import environ
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# env = environ.Env(
-#     DEBUG=(bool, False)  # default value
-# )
-# environ.Env.read_env(BASE_DIR, '.env')
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # # Your secret key
-
-# SECRET_KEY = '{SECRET_KEY}'
-# SECRET_KEY = env('SECRET_KEY')
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
-# only for production for trusting the csrf token for post request
-# CSRF_TRUSTED_ORIGINS = [
-#     'https://38be7066bf1290543fbca84d7961f4cc.balena-devices.com',
-# ]
-
-
 # Application definition
-
 INSTALLED_APPS = [
     'crispy_bootstrap4',
     'django.contrib.admin',
@@ -63,7 +46,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -96,55 +78,12 @@ WSGI_APPLICATION = 'PyChat.wsgi.application'
 # Default Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-# print({'DB_NAME'})  # Should print 'chatApp'
-# print({'DB_PORT'})  # Should print '5432'
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': '{DB_NAME}', 
-#         'USER': '{DB_USER}',
-#         'PASSWORD': '{DB_PASSWORD}',
-#         'HOST': '{DB_HOST}', 
-#         'PORT': '{DB_PORT}'
-#     }
-# }
-
-# print(env('DB_NAME'))  # Should print 'chatApp'
-# print(env('DB_PORT'))  # Should print '5432'
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': env('DB_NAME'),
-#         'USER': env('DB_USER'),
-#         'PASSWORD': env('DB_PASSWORD'),
-#         'HOST': env('DB_HOST'),
-#         'PORT': env('DB_PORT')
-#     }
-# }
-
-# print(config('DB_NAME'))  # Should print 'chatApp'
-# print(config('DB_PORT'))  # Should print '5432'
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT')
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -190,5 +129,3 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

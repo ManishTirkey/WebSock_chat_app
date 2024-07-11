@@ -1,7 +1,0 @@
-version: "2"
-
-services:
-  chatApp:
-    build: .
-    ports:
-      - "80:8000"
