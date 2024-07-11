@@ -59,6 +59,17 @@ body{
     align-items: center;
     
 }
+
+.sidenav .search-btn{
+    color: #b9b9b9;
+    transition: all 200ms linear;
+}
+
+.sidenav .search-btn:hover{
+    color: #919191;
+}
+
+
 .sidenav .friends{
     flex: 1;
     overflow: auto;
@@ -104,15 +115,93 @@ body{
 }
 
 
-.main{
-    /* display: flex;
-    flex-direction: column; */
 
+.main{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
+
+    background: #2b2b2b;
 }
 
+.main center .wrapper{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+.main center .wrapper h2{
+    padding: 10px 0;
+}
+
+.main center .wrapper .top-nav form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.main center .wrapper .top-nav input{
+    flex: .5;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 8px 10px;
+}
+
+.main center .wrapper .top-nav input:is(:hover, :focus){
+    outline: none;
+    border: none;
+}
+
+.main center .wrapper ul{
+    display: flex;
+    flex-direction: column;
+    max-height: 50%;
+    height: 50%;
+
+    margin-top: 30px;
+
+
+
+}
+
+.main center .wrapper ul a {
+    margin: 3px 0;
+    text-decoration: none;
+    padding: 4px 20px;
+    transition: all 200ms linear;
+    
+    
+}
+
+.main center .wrapper ul a:is(:hover) {
+    background-color: rgb(70, 66, 66);
+    border-radius: 10px;
+  
+}
+
+.main center .wrapper ul a .user{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 20px;
+    
+}
+
+
+.main center .wrapper ul a .user .user-username{
+    font-size: 24px;
+    color: #fff;
+
+    font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+
+  text-transform: capitalize;
+
+    
+}
 
 #myInput {
     box-sizing: border-box;
@@ -128,29 +217,6 @@ body{
 #myInput:focus {outline: 3px solid #ddd;}
 
 
-.dropdown-content {
-    display: none;
-    border-radius: 12px;
-    font-size: .7em;
-    position: absolute;
-    background-color: #f6f6f6;
-    min-width: 230px;
-    border: 1px solid #ddd;
-    z-index: 20;
-    box-shadow:0px 0px 6px 1px #abababfc;
-}
 
-.sidenav .dropdown-content a {
-    z-index: 10;
-    color: black;
-    font-size: 1.6em;
-    border-radius: 10px;
-    padding: 12px 16px;
-    text-decoration: none;
-}
-
-.dropdown a:hover{
-    background-color: #a8a8a85e;
-}
 
 .show {display: block;}

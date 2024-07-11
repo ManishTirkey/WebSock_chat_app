@@ -14,6 +14,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
@@ -25,15 +27,10 @@
     <div class="sidenav">
         <div class="sidenav-topbar">
             <a href="/"><h2>Chats</h2></a>
-            <div class="dropdown-wrapper">
-                <div class="dropdown">
-                    <button onclick="myFunction()" class="btn btn-success">Menu</button>
-                    <div id="myDropdown" class="dropdown-content">
-                        <a href="/search">Search</a>
-                        <a href="/logout">Logout</a>
-                      </div>
-                </div>
-            </div>
+            <a href="/search" class="search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+
         </div>
         <div class="friends">
             <ul class="list-group">

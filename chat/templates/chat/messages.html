@@ -1,6 +1,8 @@
 {% extends 'chat/chats.html' %}
 {% load static %}
 
+{% block title %}User: {{curr_user}}{% endblock %}
+
 {% block message %}
 {% for message in messages %}
     {% if curr_user == message.sender_name %}
