@@ -28,4 +28,10 @@ urlpatterns = [
     path("", include("django.contrib.auth.urls")),
 ]
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
+
+    # serves the static file during the production from collectstatic files
+else:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT, secure=True)
