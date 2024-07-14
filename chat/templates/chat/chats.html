@@ -15,7 +15,7 @@
             <form method="post" id="chat-box">
                 {% csrf_token %}
 
-                        <input type="text" placeholder="Send a message..." name="message" id="msg_field">
+                        <input type="text" placeholder="Send a message..." name="message" id="msg_field" autocomplete="off">
                         <button type="submit" name="send" id="send_btn">
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>

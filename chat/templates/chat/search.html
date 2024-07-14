@@ -1,6 +1,6 @@
 {% extends "chat/Base.html" %}
 {% load static %}
-{% block title %}Search Friends{% endblock %}
+{% block title %} {{curr_user}} | Search Friends{% endblock %}
 {% block content %}
     <center>
         <div class="wrapper">
@@ -9,7 +9,7 @@
 
                     <form method="post">
                         {% csrf_token %}
-                        <input type="text" placeholder="Search by name, username" name="search">
+                        <input type="text" placeholder="Search by name, username" name="search" autocomplete="off">
                         <button type="submit" class="btn btn-success">Search</button>
                     </form>
 

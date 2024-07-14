@@ -48,8 +48,11 @@ def index(request):
     else:
         username = request.user.username
         id = getUserId(username)
+
+        curr_user = UserProfile.objects.get(id=id)
+
         friends = getFriendsList(id)
-        return render(request, "chat/Base.html", {'friends': friends})
+        return render(request, "chat/Base.html", {'friends': friends, "curr_user": curr_user})
 
 
 def search(request):
@@ -58,6 +61,11 @@ def search(request):
     :param request:
     :return:
     """
+    username = request.user.username
+    id = getUserId(username)
+
+    curr_user = UserProfile.objects.get(id=id)
+
     users = list(UserProfile.objects.all())
     for user in users:
         if user.username == request.user.username:
@@ -71,7 +79,7 @@ def search(request):
         for user in users:
             if query in user.name or query in user.username:
                 user_ls.append(user)
-        return render(request, "chat/search.html", {'users': user_ls, })
+        return render(request, "chat/search.html", {'users': user_ls, "curr_user": curr_user})
 
     try:
         users = users[:10]
@@ -79,7 +87,7 @@ def search(request):
         users = users[:]
     id = getUserId(request.user.username)
     friends = getFriendsList(id)
-    return render(request, "chat/search.html", {'users': users, 'friends': friends})
+    return render(request, "chat/search.html", {'users': users, 'friends': friends, "curr_user": curr_user})
 
 
 def addFriend(request, name):
